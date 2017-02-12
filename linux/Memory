@@ -1,0 +1,18 @@
+== Linux Disk Space Commands
+
+Reports the amount of available disk space being used by file systems.
+Print sizes in human readable format (-h).
+
+*df -h*
+
+Display the amount of free space, mounting poind and etc for directory.
+
+*df <DIRECTORY>*
+
+Use the 'lsblk' command to view available disk devices and their mount points.
+
+*lsblk*
+
+Interactive process viewer.
+
+*htop*

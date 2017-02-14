@@ -11,3 +11,5 @@
 === *Command allows file to be copied to, from, or between different hosts*
 *scp <file> <ssh user and server>:<location where to>*
 
+=== *Output appended data from the file as the file grows *
+*tail -f <file>*

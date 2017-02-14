@@ -13,3 +13,6 @@
 
 === *Output appended data from the file as the file grows *
 *tail -f <file>*
+
+=== *Selectively monitor the file*
+*tail -f <file> | grep <what looking>*

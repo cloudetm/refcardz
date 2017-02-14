@@ -1,0 +1,13 @@
+=== Useful Commands
+
+== *Displays files*
+
+*  -a Displays hidden files or direcotry
+*  -l Displays more information
+* -h Display sizes in human readable format
+
+*ls -alh*
+
+== *Command allows file to be copied to, from, or between different hosts*
+*scp <file> <ssh user and server>:<location where to>*
+

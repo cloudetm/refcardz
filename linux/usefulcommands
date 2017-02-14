@@ -1,6 +1,6 @@
-=== Useful Commands
+= *Useful Commands*
 
-== *Displays files*
+=== *Displays files*
 
 *  -a Displays hidden files or direcotry
 *  -l Displays more information
@@ -8,6 +8,6 @@
 
 *ls -alh*
 
-== *Command allows file to be copied to, from, or between different hosts*
+=== *Command allows file to be copied to, from, or between different hosts*
 *scp <file> <ssh user and server>:<location where to>*
 

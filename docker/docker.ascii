@@ -1,0 +1,3 @@
+= *Docker Commands*
+
+*docker logs tracking-app --follow*

@@ -1,2 +1,19 @@
-= *High Level Micro*
+= *Microservices Build Lifecycle*
 
+The document contains information related to microservices design and implementation.
+ Implementation strategies, PROS and CONS for different approaches.
+
+== *Define High Level Requirements*
+== *Defin High Level Infrastructure Design*
+== *Defin Business Requirements*
+== *Define Non-Functional Reqiurements*
+== *Define Performance Requirements*
+== *Define Data Storage Requirements*
+== *Define Monitoring Requirements*
+== *Define JSON Contracts*
+== *Define Versioning Strategy*
+== *Define Build Pipeline*
+== *Define Security Implications*
+
+== *Create Sandbox Application (Docker or any Cloud Provider)*
+== *Build and Deploy Pet Application as Proof of Concept*

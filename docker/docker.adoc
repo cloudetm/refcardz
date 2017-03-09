@@ -1,3 +1,29 @@
 = *Docker Commands*
 
 *docker logs tracking-app --follow*
+
+docker tag   (Helpful if you need to add a tag)
+
+docker run -d -p 8080:80 some-image (This will run the previously built image on the docker machine and map port 8080 on the docker-machine to port 80 on the container)
+
+docker-machine ip default (this will return the IP of the docker-machine instance that your container was deployed on)
+
+docker-compose up -d (this will start all services using compose on the docker machine -d is important, as this will detach)
+
+docker-compose stop (this will stop all services using compose)
+
+docker-compose rm (this will rm all containers associated with the services using compose)
+
+docker images (List out the current images)
+
+docker ps (List out the currently running containers on the current docker machine)
+
+docker logs -f &lt;container_id&gt; (tail output of application on container)
+
+docker stop $(docker ps -a -q) (stop all docker containers)
+
+docker rm $(docker ps -a -q) (delete all docker containers)
+
+docker rmi $(docker images -q) (remove all docker images)
+
+docker push name/repo:tag (Push an image to a remote docker registry. Dont forget to create the repository first at docker.com)

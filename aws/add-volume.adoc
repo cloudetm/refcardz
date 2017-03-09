@@ -1,0 +1,22 @@
+== Steps to provision EC2 instance with extra volume
+
+attach volume first
+
+*lsblk*
+
+# create folder
+*mkdir myfileserver*
+
+# check if volume has any data on it
+*file -s /dev/xvdf*
+
+>> data means is empty
+
+# format dist
+*mkfs -t ext4 /dev/xvdf*
+
+# mount it
+*mount /dev/xvdf /myfileserver*
+
+# unmount
+*umount /dev/xvdf*

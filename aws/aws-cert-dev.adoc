@@ -1,0 +1,8 @@
+= *AWS Certififed Developer Associate*
+
+EC2 Configuration
+aws s3 ls
+
+EC2 Instance Metatdata
+curl http://169.254.169.254/latest/meta-data/
+

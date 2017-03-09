@@ -1,8 +1,21 @@
 = *AWS Certififed Developer Associate*
 
-EC2 Configuration
+*EC2 Configuration*
+
 aws s3 ls
 
-EC2 Instance Metatdata
+*EC2 Instance Metatdata*
+
 curl http://169.254.169.254/latest/meta-data/
 
+*List folders in bucket*
+
+aws s3 ls s3://<bucket-name>/schema/
+
+* Update bucket permissions on file*
+
+aws s3api put-object-acl --bucket <bucket> --key <path+file> --grant-read uri=http://acs.amazonaws.com/groups/global/AllUsers
+
+
+== Docs
+http://docs.aws.amazon.com/cli/latest/userguide/using-s3-commands.html

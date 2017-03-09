@@ -19,3 +19,11 @@
 
 === *Selectively monitor the file*
 *tail -f <file> | grep <what looking>*
+
+*Move from directory to parent directory*
+
+mv *.* ..
+
+*Untar*
+
+tar -zxvf <file>.tgz -C <folder>

@@ -20,6 +20,8 @@
 === *Selectively monitor the file*
 *tail -f <file> | grep <what looking>*
 
+
+=== *Work with files*
 *Move from directory to parent directory*
 
 mv *.* ..
@@ -27,3 +29,9 @@ mv *.* ..
 *Untar*
 
 tar -zxvf <file>.tgz -C <folder>
+
+=== *Profile updates*
+
+*Without breaking current session, upgrade profile*
+
+source ~/.profile

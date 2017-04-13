@@ -1,0 +1,19 @@
+== *Disaster Recovery Traditional Approaches*
+
+. Invloles N+1 approach and has different levels of off-site duplication
+data and infrastructure
+. Facilities to house the infrastructure, including power and cooling
+. Security to ensure the pshysical protection of assets
+. Suitable capacity to scale the environment
+. Support for repairing, replacing, and refreshing the infastructure
+. Contractual agreement with an Internet service provider (SP) to provide
+internet connectivity that can sustain bandwith utilisation for the
+environment under a full load
+. Network infrastructure such as firewalls, routers, swithes, and load
+balancers
+. Enough server capacity to run all mission-critical services,
+including storage appliances for the supporting data, and servers
+to run applications and backend services such as user authentication,
+Domain Name System(DNS)
+. Dynamic HOST Configuration Protocol (DHCP), monitoring,
+and alerting

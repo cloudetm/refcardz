@@ -1,0 +1,134 @@
+== *Distaster Recovery*
+
+.*DR - Disaster Recovery*
+----
+Is about preparing for and recovering from a disaster. Any event that has a negative
+impact on a company's business continuity or finances could be termed a disaster.
+This includes hardware or software failure, a network outage, a power outage,
+physical damage to a building like fire or flooding, human error, or some other
+significant event.
+----
+
+.*RTO - Recovery Time Objective*
+----
+Is the length of time from which you can recover a disaster. It is measured from when the
+disaster first occured as to when you have fully recovered from it.
+----
+
+.*RPO - Recovery Point Objective*
+----
+Is the amount of data you organisation is prepared to lose in the event of a disaster
+(1 day worth of emails, 5 hours of online transaction records etc, 24 hours of backup etc).
+----
+
+.*Why AWS for DR*
+----
+Only minimum hardware is reguired for "data replication"
+Allows you to be flexible depending on what your disaster is and how to recover from it
+Opex cost model(pay as you use) rather than heavy investment upfront. Scaling is quick
+and easy
+Automate disaster recovery deployment
+----
+
+.*DS Scenarios*
+----
+Backup&Restore <- Pilot Light <- Warm Standby <- Multi Site
+----
+
+.*Backup and Restore*
+----
+In most traditional environments, data is backed up to tape and send off-site
+regularry. If you use this method, it can take a long time to restore your
+system in the event of a disruption or disaster. Amazon S3 is an ideal
+destination for backup data that might be needed quickly to perform a restore.
+Transfering data to and from Amazon S3 typiccaly done through network, and is
+therefore accessible from any location.
+You can use AWS Import/Export to transfer very large data sets by shipping
+storage devices directly to AWS.
+
+Key Steps for backup & restore:
+1. Select an appropriate tool or method to back up you data into AWS
+2. Ensure that you have an appropriate retention policy for this data
+3. Ensure that appropriate security measures are in place for this data,
+including encryption and access policies
+4. Regularly test the recovery of this data and the restoration of you system
+
+
+1. Freeze data changes to the DR site
+2. Take a backup
+3. Restore the backup to the primary site
+4. Re-Point users to the primary site
+5. Unfreeze the changes
+----
+
+. *Pilot Light*
+----
+The term Pilot Ligth is often used to describe a DR scenario in whicn a minimal version
+of an environment is always running in the cloud. The idea of the pilot light is an
+analogy that comes from the gas heater. In a gas heater, a small flame that's always
+on can quicly ignite the entire furnance to heat up a house.
+
+Infrastructure elements for the pilot light itself typically include your database servers,
+which would replicate data to Amazon EC2 or Amazon RDS. Depending on the system, there might
+be other critical data outside of the database that needs to be replicated to AWS.
+
+To provision the remainder of the infrastructure to resotre business critical services, you
+would typically have some preconfigured servers bundled as Amazon Machine Images (AMIs), which
+are ready to be started up at a moment's notice.
+
+Provision for Pilot Light
+1. User pre-allocated elastic IP addresses and associate them with your instances when invoking DR
+You can also use pre-allocated elastic network interfaces (ENIs) with pre-allocated MAC Addresses
+for applications with special licensing requirements
+2. Use Elastic Load Balancing to distrubute traffic to multiple instances. You would then update
+you DNS records to point at your Amazon EC2 instance or point to your load balancer using a CNAM
+
+1. Establish reverse mirroing/replicatoin from the DR site back to the primary site,
+once the primary site has caught up with the changes
+2. Freeze data changes to the DR site
+3. Re-Point users to the primary site
+4. Unfreeze the changes
+----
+
+.*Warm Standby*
+----
+The term standby is used to describe a DR scenario in which a scaled-down version of fully
+functional environment is always running in the cloud. A warm standby solution extends
+the pilot light elements and preparation. It futher decreases the recovery time because
+some services are always running. By identifying you business-critical systems, you can
+fully duplicate these systems on AWS and have them always on.
+
+Key Steps for Preparation:
+1. Set up Amazon EC2 instances to replicate or mirror data
+2. Create and maintain AMIs
+3. Run you application using a minimal footprint of Amazon EC2 instances or AWS
+infrastructure
+4. Patch and update software and configuration files in line with you live
+environment
+
+Key Steps for Recovery:
+1. Increase the size of the Amazon EC2 fleets in service with the load balancer(horizontal scaling)
+2. Start applications on larger Amazon EC2 instance types as needed (vertical scaling)
+3. Either manually changes the DNS records, or use Amazon Route 53 automated health checks so that
+all traffic is routed to the AWS environment.
+4. Consider using Auto Scaling to right-size the fleet or accomodate the increased load
+5. Add resilience or scale up you database
+----
+
+.*Multi Site*
+----
+Key Steps for milty site preparation:
+1. Set up you AWS environment to duplicate you production environment
+2. Set up DNS weigting, or similar traffic routing technology, to distribute incoming
+requests to both sites. Configure automated failover to re-route traffic away from the affected
+site
+
+3. Either manually or by using DNS failover, change the DNS weighting so that all requests are sent
+to the AWS site
+4. Have application logic failover to use the local AWS database servers for all queries
+5. Consider using Auto Scaling to automatically right-size the AWS fleet
+----
+
+---
+---
+Typically the lower RTO&RPO threshold, the more costly it solution will be.

@@ -20,3 +20,6 @@ attach volume first
 
 # unmount
 *umount /dev/xvdf*
+
+.*File System Metadata*
+file -x /dev/xvdf,

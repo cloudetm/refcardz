@@ -1,0 +1,12 @@
+== *Monitoring and Logging*
+
+You can monitor environment is a number of ways:
+{sp} +
+
+* Using a third party, centralized monitoring
+   platform, such as Zennos, Splunk, Kiwi. This
+   logs can then be stored on S3
+* Using CloudWatch Logs
+* Using Access Loggin on S3(s3 only) 
+
+

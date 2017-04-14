@@ -1,0 +1,38 @@
+== *EBS & Instance Stores Volumes*
+{sp} +
+
+._EBS (Elastic Block Store)_
+----
+Allows users to have data persistence and to save
+ their data permanently
+----
+{zwsp} +
+
+._Instance Store_
+----
+Is known as ephemeral storage, which simply means
+ non-persistence or temporary storage.
+----
+
+{nbsp} +
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html[Comparison Table]
+{nbsp} +
+
+==== *Volume Types*
+._Root Volume_
+----
+Root device volumes can either be EBS volumes or
+ Instance Store volumes
+An instance store rood device volume's maximum size is
+ 10 Gib
+EBS root device volume can be up to 16TiB.
+
+
+----
+._Additional Volumes_
+----
+
+----
+
+
+

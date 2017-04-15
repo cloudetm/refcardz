@@ -1,0 +1,14 @@
+== *Scalability*
+
+.*Scale Out*
+----
+ Traditionally - adding more resources
+ EC2 - adding additional instances and using autoscaling
+----
+
+.*Scale UP*
+----
+  Increase the number of processors, the number of RAM or the
+   amount of storage.
+  Increases instance type from T1 to T2 for example
+----

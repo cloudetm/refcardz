@@ -1,0 +1,53 @@
+=== *Security Token Service*
+
+
+.*Federation*
+----
+Uses Seciruity Assertion Markup Language (SAML)
+Grants temporary access based off the users Active Directory credentials
+  Does not need to be a user in AIM
+Single sign on allows users to log in to AWS console without assigning
+ IAM credentials
+----
+
+.*Federation with Mobile Apps*
+----
+Use Facebook/Amazon/Google or other OpenID providers to log in.
+----
+
+.*Cross Account Access*
+----
+Let's users from one AWS account access resources in another
+----
+{sp}+
+
+Federation: combining or joining a list of users in one domain(such as IAM)
+ with a list of users in another domain(such as Active Directory, Facebook etc)
+
+{sp}+
+
+Identity Broker: a service that allows you to take an identity from point A and
+ join it (federate it) to point B
+
+{sp} +
+
+Identity Store - Services like Active Directory, Facebook, Google etc
+
+{sp} +
+
+Identities - a user of a service like Facebook etc
+
+Steps:
+. Develop an Identity Broker to communicate with LDAP and AWS STS
+. Identity Broker always authenticate with LDAP firs, then with AWS STS
+. Application then gets temporary access to AWS resources
+
+Steps:
+. Develop an Identity Broker to communicate with LDAP and AWS STS
+. Identity Broker always authenticate with LDAP first, get an IAM Role
+   associated with a user.
+. Application then authenticate with STS and assumes that IAM Role
+. Application uses that IAM role to interact with S3
+
+
+

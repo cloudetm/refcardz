@@ -1,0 +1,7 @@
+Run t2.micro with command line
+ aws ec2 run-instances --image-id="ami-11130775" --instance-type "t2.micro" --region "eu-west-2"
+
+
+
+
+

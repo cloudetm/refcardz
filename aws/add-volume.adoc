@@ -23,3 +23,9 @@ attach volume first
 
 .*File System Metadata*
 file -x /dev/xvdf,
+
+.*Check file system type*
+sudo file -s <path>
+
+.*Resize mounted volume*
+resize2fs <file system>

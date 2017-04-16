@@ -1,0 +1,56 @@
+Author is Ivan Katliarchuk
+
+GUIDE
+http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+
+cd latestEnv
+
+<may need to install pip and virtual env> source latestEnv/bin/activate
+
+Command: 'sudo apt install awscli'
+Python libraries needed
+
+AWS CLI tool support
+https://boto3.readthedocs.io/en/latest/
+
+pip install boto3
+Instantly make your loops show a smart progress meter
+https://pypi.python.org/pypi/tqdm
+
+pip install tqdm
+Generate life like fake data
+https://pypi.python.org/pypi/fake-factory
+
+pip install fake-factory
+REVIEW. Deprecated. User Faker
+
+Multi threaded operations support. Used for scaling
+
+https://docs.python.org/2/library/multiprocessing.html
+
+pip install multiprocessing
+
+remove aws cli?
+
+STEPS
+
+Set AWS configuration On HOST and on JUMP BOX
+ Command: 'aws configure --profile loadmin'
+Pick The Reqion
+http://docs.aws.amazon.com/general/latest/gr/rande.html
+
+AWS Access Key ID [None]: *CloudFormation LoAdmin Outputs*
+
+AWS Secret Access Key [None]:
+
+Default region name [None]: eu-west-2
+
+Default output format [None]: json
+Thoose will create .aws folder in HOME directory and create two files config and credentials
+
+Test the AWS Config SET
+Command: 'aws s3 ls --profile loadmin'
+Setup retry json model. To influence the hard cap of operations before failure. Multiple retries
+Inside *.aws* create model folder and add there _retry.json
+Access Instance. Setup Read Access for .pem file
+Command: 'chmod 400 <File>.pem'

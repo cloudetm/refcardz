@@ -1,0 +1,29 @@
+:blank: pass:[&emsp;&emsp;&emsp;&emsp;&emsp;]
+
+# Introduction to sugnetting
+
+## Introduction
+   A Brief introduction to binary and some basic subnetting.
+
+   People are always advertising fancy tricks, tips, magic, etc to make subnetting easier. The fact is,
+  subnetting is only as difficult as you make it. The best way to learn subnetting is just to do it!
+  Before long, it will become second nature.
+
+## Binary
+  Let's start with binary. As you know, the entire internet communicationes with electrical signals sent
+ through copper, fiber, or even through the air. These signals are nothing more than a series of waves,
+ pulses, or lights thta indicate either or on or off. For instance, if the medium is fiber optics,
+ these are essentially blinking lights. They are blinking MUCH faster that we can perceive, but they are blinking.
+ Each time the light is on, it signifies a 1 and when the light is off, it signifies a 0. Each 1 or 0 is called a bit.
+ These bits stream  together to form binary code. Binary stands for 2, which represents the 2 possible digits, 0 and 1.
+ These signals are grouped together in predetermined lengths to indicate when the message stops and starts.
+ ======|1100000101010000000000000000001|========
+
+ Fiber {blank}{blank}{blank}{blank}  Fiber
+
+ An IP address is 4 Bytes or 4 blocks of 8 bits. Keep in mind that when abbreviating bits and Bytes, a Capital B
+ signifies Bytes and a lowercase b signifies bits. I will capitalize Bytes throughout this guide to remind you of that
+ fact. As an example, consider the binary representation of the IP address 192.168.0.1
+ 11000000.10101000.00000000.00000001
+
+ Each Byte in an IP address is also called an octet. The oct in octet refers to 8. 

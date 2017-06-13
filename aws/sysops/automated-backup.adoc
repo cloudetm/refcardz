@@ -1,0 +1,49 @@
+== *AWS Services and Automated BackUps*
+
+.*Do have Automated Backup*
+
+._RDS_
+----
+For MySQL InnoDB (transactional engine)
+There is a performance hit if Mutly-AZ is not enabled
+If you delete an instane, then ALL automated backups a
+ deleted
+Manual DB shanpshots will NOT be deleted
+All stored on S3
+ When you do a restore, you can change the engine type
+----
+[TIP]
+._ElasticCahe (Redis)_
+----
+Available for Reddis Cache Cluster only
+The entire cluster is snapshotted
+Snapshot will degrade performance
+Therefore only set your snapshot window during the
+ least busy part of the day
+Stored on S3
+----
+._Redshift_
+----
+Stored on S3
+By default, Amazon Redshit enables automated
+ backups of you data warehouse cluster with a 1-day
+ retention period.
+
+----
+
+.*No Automated Backups*
+._EC2_
+----
+Not automated backups
+Backups degrade you performance, schedule these times
+ wisely
+Snapshots are stored on S3
+Can create automated backups using either the comand line
+ interface or Python
+The are incrementa:
+ Snapshots only store incremental changes since last snapshot
+ Only charged for incremental storage
+ Each snapshot still contains the base snapshot data
+----
+
+

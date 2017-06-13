@@ -1,4 +1,5 @@
 == *Distaster Recovery*
+http://media.amazonwebservices.com/AWS_Disaster_Recovery.pdf[White Paper]
 
 .*DR - Disaster Recovery*
 ----

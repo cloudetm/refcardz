@@ -1,0 +1,28 @@
+== *EC2 Status Checks*
+
+.*System Status Check (Checks HOST)*
+----
+ Checks the underlaing physical host.
+ Types of errors:
+  1. Loss of network connectivity
+  2. Loss of system power
+  3. Software issues on the physical host
+  4. Hardware issues on the physical host
+ Troubleshooting&Resolve:
+  * Stop Virtual machine and start it again(it will use another
+   physical host)
+----
+
+.*Instance Status Check (Check VM)*
+----
+ Check the underlying virtual machine itself.
+ Types of errors:
+  1. Failed system status check
+  2. Misconfigured networking or startup configuration
+  3. Exhausted memory
+  4. Corrupted file sytem
+  5. Incompatible kernel
+ Troubleshooting&Resolve:
+  * Reboot the instance or by making modificatiosn in your operating
+   system
+----

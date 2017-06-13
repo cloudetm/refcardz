@@ -1,0 +1,12 @@
+== *iperf Performance Test*
+
+.*Install iperf*
+yum --enablerepo=epel install iperf iperf3
+
+.*Run server on one instance*
+----
+iperf3 -s -p 80
+----
+
+.*Run command on another instance*
+iperf3 -c <ip> -i 1 -t 10 -p 80

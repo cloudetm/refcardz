@@ -1,0 +1,43 @@
+=== *Monitoring EBS*
+
+.*VolumeReadBytes&VolumeWriteBytes*
+----
+ The sum staticist reports the total number of bytes transfered
+ Average is also useful to see the average size of each I/O operation
+----
+
+.*VolumeReadOps&VolumeWriteOps*
+----
+ Represents the total number of I/O operations
+ You can calculate the averate I/O operations per second IOPS for
+  a period by dividing the total operations by the number of seconds
+  in that period
+----
+
+.*VolumeTotalReadTime&VolumeTotalWriteTime*
+----
+ The total number of seconds spent by all operations in a given
+  time period
+ A steady increase in these numbers could indicate the need to
+  increase volume size of increase the nuber of provisioned IOPS
+----
+
+.*VolumeQueueLength*
+----
+ Number of read/write operation requests waiting to finish
+----
+
+.*VolumeThroughputPercentage*
+----
+ The percentage of I/O operations per second that we achieved
+  out of the total provisioned IOPS for our EBS volume
+----
+
+.*VolumeConsumedReadWriteOps*
+----
+ The total amount of read and write operations consumed within a
+  specific time period
+----
+
+
+

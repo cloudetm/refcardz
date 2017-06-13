@@ -1,0 +1,64 @@
+== *Scalability & Elasticity*
+
+.*Scale Out*
+----
+ Traditionally - adding more resources
+ EC2 - adding additional instances and using autoscaling
+----
+
+.*Scale UP*
+----
+  Increase the number of processors, the number of RAM or the
+   amount of storage.
+  Increases instance type from T1 to T2 for example
+----
+
+.*Scalability*
+----
+ We Can increase the size of instances
+ There are different instance types we can choose from to grow
+ We cal launch more instances
+
+ DynamoDB example:
+  We can keep storing more and more data without having to
+   provision any hardware
+
+ RDS:
+   We can increase the size of instances
+   Launch read replicas
+   There are different instance types we can choose from to grow
+----
+
+.*Elasticity*
+----
+ Auto Scaling gives the ability to grow with demand, and shrink
+  during slower periods
+
+  DynamoDB example:
+   We can increase or decrease read and write throughput capacity
+    on demand
+   As read requestsincrease, we can increase read trhroughput capacity
+   As read requests slow down, we can decrease capacity
+
+  RDS:
+   Limited
+----
+
+.*Autoscaling*
+----
+  Distribute the load across multiple instances
+  Uses metrics and rules to automate spinning/terminating instances
+----
+
+.*Resizing*
+----
+ Increase/decrease resources available to out application
+----
+
+
+
+
+
+
+
+

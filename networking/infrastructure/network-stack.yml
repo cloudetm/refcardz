@@ -1,0 +1,522 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "This template creates a self contained VPC with a standard base configuration"
+
+# Parameters section
+Parameters:
+  ParAwsRegion:
+    Type: String
+    Default: "eu-west-1"
+
+  ParBaseStackName:
+    Type: String
+    Default: "test"
+
+  ParVPCCIDRBlock:
+    Type: "String"
+    Default: "10.0.0.0/16"
+
+  ParSNPublicaCIDRBlock:
+    Type: "String"
+    Default: "10.0.1.0/24"
+
+  ParSNPublicbCIDRBlock:
+    Type: "String"
+    Default: "10.0.2.0/24"
+
+  ParSNPubliccCIDRBlock:
+    Type: "String"
+    Default: "10.0.3.0/24"
+
+  ParSNPrivateaCIDRBlock:
+    Type: "String"
+    Default: "10.0.4.0/24"
+
+  ParSNPrivatebCIDRBlock:
+    Type: "String"
+    Default: "10.0.5.0/24"
+
+  ParSNPrivatecCIDRBlock:
+    Type: "String"
+    Default: "10.0.6.0/24"
+
+  ParSSHKeyName:
+    Type: "AWS::EC2::KeyPair::KeyName"
+    Default: "pis-shared"
+
+  ParBastionImageId:
+    Type: String
+    Default: "ami-01ccc86"
+
+  MorleyNetworkCidrIp:
+    Type: "String"
+    Default: "5.67.88.244/32"
+
+Mappings:
+  # https://aws.amazon.com/amazon-linux-ami/
+  RegionMap:
+    eu-west-1:
+      bastion: ami-01ccc867
+      az1: eu-west-1a
+      az2: eu-west-1b
+      az3: eu-west-1c
+      instance: ami-01ccc867
+
+Resources:
+  HermesVpc:
+    Type: "AWS::EC2::VPC"
+    Properties:
+      CidrBlock: !Ref ParVPCCIDRBlock
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "vpc"]]
+
+  # Internet GW & attachment
+  vpcInternetGateway:
+    Type: "AWS::EC2::InternetGateway"
+    Properties:
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "igw"]]
+
+  vpcGWAttachment:
+    Type: "AWS::EC2::VPCGatewayAttachment"
+    Properties:
+      VpcId: !Ref HermesVpc
+      InternetGatewayId: !Ref vpcInternetGateway
+
+  # Subnets
+  snPublica:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref HermesVpc
+      CidrBlock: !Ref ParSNPublicaCIDRBlock
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", az1]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sn-publica"]]
+
+  snPublicb:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref HermesVpc
+      CidrBlock: !Ref ParSNPublicbCIDRBlock
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", az2]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sn-publicb"]]
+
+  snPublicc:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref HermesVpc
+      CidrBlock: !Ref ParSNPubliccCIDRBlock
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", az3]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sn-publicc"]]
+
+  snPrivatea:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref HermesVpc
+      CidrBlock: !Ref ParSNPrivateaCIDRBlock
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", az1]
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sn-privatea"]]
+
+  snPrivateb:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref HermesVpc
+      CidrBlock: !Ref ParSNPrivatebCIDRBlock
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", az2]
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sn-privateb"]]
+
+  snPrivatec:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      VpcId: !Ref HermesVpc
+      CidrBlock: !Ref ParSNPrivatecCIDRBlock
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", az3]
+      MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sn-privatec"]]
+
+  # Public route & table for the vpc
+  vpcPublicRouteTable:
+    Type: "AWS::EC2::RouteTable"
+    Properties:
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "rt-public"]]
+
+  vpcPrivateRouteTablea:
+    Type: "AWS::EC2::RouteTable"
+    Properties:
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "rta-private"]]
+
+  vpcPrivateRouteTableb:
+    Type: "AWS::EC2::RouteTable"
+    Properties:
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "rtb-private"]]
+
+  vpcPrivateRouteTablec:
+    Type: "AWS::EC2::RouteTable"
+    Properties:
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "rtc-private"]]
+
+  vpcPublicRoute:
+    Type: "AWS::EC2::Route"
+    Properties:
+      RouteTableId: !Ref vpcPublicRouteTable
+      DestinationCidrBlock: "0.0.0.0/0"
+      GatewayId: !Ref vpcInternetGateway
+    DependsOn: vpcInternetGateway
+
+  vpcPrivateRoutea:
+    Type: "AWS::EC2::Route"
+    Properties:
+      RouteTableId: !Ref vpcPrivateRouteTablea
+      DestinationCidrBlock: "0.0.0.0/0"
+      NatGatewayId: !Ref vpcNATGateway1a
+    DependsOn: vpcNATGateway1a
+
+  vpcPrivateRouteb:
+    Type: "AWS::EC2::Route"
+    Properties:
+      RouteTableId: !Ref vpcPrivateRouteTableb
+      DestinationCidrBlock: "0.0.0.0/0"
+      NatGatewayId: !Ref vpcNATGateway1b
+    DependsOn: vpcNATGateway1b
+
+  vpcPrivateRoutec:
+    Type: "AWS::EC2::Route"
+    Properties:
+      RouteTableId: !Ref vpcPrivateRouteTablec
+      DestinationCidrBlock: "0.0.0.0/0"
+      NatGatewayId: !Ref vpcNATGateway1c
+    DependsOn: vpcNATGateway1c
+
+
+  # Subnet & RouteTable associactions (both private & public)
+  rtaPublica:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref snPublica
+      RouteTableId: !Ref vpcPublicRouteTable
+
+  rtaPublicb:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref snPublicb
+      RouteTableId: !Ref vpcPublicRouteTable
+
+  rtaPublicc:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref snPublicc
+      RouteTableId: !Ref vpcPublicRouteTable
+
+  rtaPrivatea:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref snPrivatea
+      RouteTableId: !Ref vpcPrivateRouteTablea
+
+  rtaPrivateb:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref snPrivateb
+      RouteTableId: !Ref vpcPrivateRouteTableb
+
+  rtaPrivatec:
+    Type: "AWS::EC2::SubnetRouteTableAssociation"
+    Properties:
+      SubnetId: !Ref snPrivatec
+      RouteTableId: !Ref vpcPrivateRouteTablec
+
+# Security groups for the environment
+# Will add more granular security as we go along
+  sgEcsCluster:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "ECS cluster security group"
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sg-ecs-cluster"]]
+      # Allow ingress from the load balancer on any port
+      SecurityGroupIngress:
+        - IpProtocol: "-1"
+          FromPort: "0"
+          ToPort: "65535"
+          SourceSecurityGroupId: !Ref "sgEcsLoadBalancer"
+      # Allow unlimited egress on HTTP(S) ports to pull images
+      SecurityGroupEgress:
+        - IpProtocol: "tcp"
+          FromPort: "80"
+          ToPort: "80"
+          CidrIp: "0.0.0.0/0"
+        - IpProtocol: "tcp"
+          FromPort: "443"
+          ToPort: "443"
+          CidrIp: "0.0.0.0/0"
+
+  sgBastion:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "Developer access to the services"
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sg-bastion"]]
+      SecurityGroupIngress:
+        - IpProtocol: "TCP"
+          FromPort: "22"
+          ToPort: "22"
+          CidrIp: !Ref MorleyNetworkCidrIp
+
+#Instances
+
+  sgEc2Instance:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupDescription: "Developer access to the subnets"
+      VpcId: !Ref HermesVpc
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "sg-instance"]]
+      SecurityGroupIngress:
+        - IpProtocol: "TCP"
+          FromPort: "22"
+          ToPort: "22"
+          SourceSecurityGroupId: !Ref sgBastion
+
+# Bastion
+
+  s3bucketBastionKeys:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      AccessControl: "Private"
+      BucketName: !Join ["-", [!Ref "AWS::StackName", "bastion-ssh-keys"]]
+      Tags:
+        - Key: Project
+          Value: PIS
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "s3bucket-bastion-ssh-keys"]]
+      VersioningConfiguration:
+        Status: "Enabled"
+
+  roleEC2iBastion:
+    Type: "AWS::IAM::Role"
+    Properties:
+      RoleName: !Join ["-", [!Ref "AWS::StackName", "iam-role-bastion-ssh-keys"]]
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "ec2.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+
+  rolePolicyBastion:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyDocument: !Sub |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": ["s3:*"],
+                  "Resource": [
+              "arn:aws:s3:::${s3bucketBastionKeys}",
+              "arn:aws:s3:::${s3bucketBastionKeys}/*"
+              ]
+              },
+              {
+                  "Effect": "Deny",
+                  "Action": [
+                      "s3:DeleteObject",
+                      "s3:DeleteObjectVersion",
+                      "s3:PutLifeCycleConfiguration"
+                  ],
+                  "Resource": [
+                      "*"
+                  ]
+              }
+          ]
+        }
+      PolicyName: !Join ["-", [!Ref "AWS::StackName", "iam-policy-bastion-ssh-keys"]]
+      Roles:
+        - !Ref roleEC2iBastion
+        #Join ["-", [!Ref "AWS::StackName", "iam-role-bastion-ssh-keys"]]
+
+  profileEC2iBastion:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties:
+      Path: "/"
+      Roles:
+        - !Ref roleEC2iBastion
+
+  asglcBastion:
+    Type: AWS::AutoScaling::LaunchConfiguration
+    Properties:
+      AssociatePublicIpAddress: true
+      IamInstanceProfile: !Ref profileEC2iBastion
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", bastion]
+      InstanceType: "t2.nano"
+      KeyName: !Ref ParSSHKeyName
+      SecurityGroups:
+        - !Ref sgBastion
+      UserData:
+        "Fn::Base64":
+          "Fn::Sub": |
+            #!/bin/bash
+            #https://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/
+
+            yum -y update --security
+            mkdir /usr/bin/bastion            
+
+    DependsOn: vpcInternetGateway
+
+  asgBastion:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      VPCZoneIdentifier:
+        - !Ref snPublica
+        - !Ref snPublicb
+        - !Ref snPublicc
+      LaunchConfigurationName: !Ref asglcBastion
+      MinSize: 1
+      MaxSize: 1
+      DesiredCapacity: 1
+      Tags:
+        - Key: Project
+          Value: PIS
+          PropagateAtLaunch: true
+        - Key: Name
+          Value: !Join ["-", [!Ref "AWS::StackName", "bastion"]]
+          PropagateAtLaunch: true
+
+
+Outputs:
+  StackMorleyCidrIp:
+    Description: "Hermes Guest Wifi Ips"
+    Value: !Ref MorleyNetworkCidrIp
+    Export:
+          Name: !Sub "${AWS::StackName}-Morley-Network-Ips"
+
+  StackVpc:
+    Description: The ID of the VPC
+    Value: !Ref HermesVpc
+    Export:
+      Name: !Sub "${AWS::StackName}-VPCID"
+
+  StackVpcCidr:
+    Description: The CIDR block of the VPC
+    Value: !Ref ParVPCCIDRBlock
+    Export:
+      Name: !Sub "${AWS::StackName}-VPC-CIDR"
+
+  StackPublicSubneta:
+    Description: The ID of public subnet a
+    Value: !Ref snPublica
+    Export:
+      Name: !Sub "${AWS::StackName}-public-subnet-a"
+
+  StackPublicSubnetb:
+    Description: The ID of public subnet b
+    Value: !Ref snPublicb
+    Export:
+      Name: !Sub "${AWS::StackName}-public-subnet-b"
+
+  StackPublicSubnetc:
+    Description: The ID of public subnet c
+    Value: !Ref snPublicc
+    Export:
+      Name: !Sub "${AWS::StackName}-public-subnet-c"
+
+  StackPrivateSubneta:
+    Description: The ID of private subnet a
+    Value: !Ref snPrivatea
+    Export:
+      Name: !Sub "${AWS::StackName}-private-subnet-a"
+
+  StackPrivateSubnetb:
+    Description: The ID of private subnet b
+    Value: !Ref snPrivateb
+    Export:
+      Name: !Sub "${AWS::StackName}-private-subnet-b"
+
+  StackPrivateSubnetc:
+    Description: The ID of private subnet c
+    Value: !Ref snPrivatec
+    Export:
+      Name: !Sub "${AWS::StackName}-private-subnet-c"
+
+  EcsClusterSecurityGroup:
+    Value: !Ref sgEcsCluster
+    Export:
+      Name: !Sub "${AWS::StackName}-ecs-security-group"
+  Ec2InstanceSecurityGroup:
+    Value: !Ref sgEc2Instance
+    Export:
+      Name: !Sub "${AWS::StackName}-bastion-security-group"
+
+  SgBastion:
+    Value: !Ref sgBastion
+    Export:
+      Name: !Sub "${AWS::StackName}-ec2-instance-security-group"

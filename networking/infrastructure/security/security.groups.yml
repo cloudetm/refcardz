@@ -1,0 +1,69 @@
+Description: >
+    This template contains the security groups required by our entire stack.
+    We create them in a seperate template, so they can be referenced
+    by all of the other templates.
+
+Parameters:
+    NetworkStackName:
+        Description: Base stack name that contains stack resources
+        Type: String
+
+    EnvironmentName:
+        Description: An environment name that will be prefixed to resource names
+        Type: String
+
+    NottinghamCIDRIp:
+        Type: "String"
+        Default: "81.108.34.254/32"
+
+Resources:
+    # This security group defines who/where is allowed to access the ECS hosts directly.
+    # By default we're just allowing access from the load balancer.  If you want to SSH
+    # into the hosts, or expose non-load balanced services you can open their ports here.
+    InstanceHostSecurityGroup:
+        Type: AWS::EC2::SecurityGroup
+        Properties:
+            VpcId:
+                'Fn::ImportValue':
+                     !Join ['-', [!Sub "${NetworkStackName}", 'vpcid', !Sub "${EnvironmentName}"]]
+            GroupDescription: Access to the host instances
+            GroupName:
+                !Join ['-', [!Ref 'AWS::StackName', 'instance', 'host', !Sub "${EnvironmentName}"]]
+            SecurityGroupIngress:
+                # Only allow inbound access to ECS from the ELB
+                - IpProtocol: 'tcp'
+                  CidrIp: !Ref NottinghamCIDRIp
+                  FromPort: '80'
+                  ToPort: '80'
+                # Only allow inbound access to ECS from the Bastion
+                - IpProtocol: 'tcp'
+                  FromPort: '22'
+                  ToPort: '22'
+                  CidrIp: !Ref NottinghamCIDRIp
+
+            # Allow unlimited egress on HTTP(S) ports to pull images
+            SecurityGroupEgress:
+                # Allow unlimited egress on HTTP(S) ports to pull images
+                - IpProtocol: 'tcp'
+                  FromPort: '80'
+                  ToPort: '80'
+                  CidrIp: '0.0.0.0/0'
+                - IpProtocol: 'tcp'
+                  FromPort: '443'
+                  ToPort: '443'
+                  CidrIp: '0.0.0.0/0'
+            Tags:
+              - Key: Project
+                Value: !Join ['', ['linux', 'academy', 'networking']]
+              - Key: Name
+                Value: !Join ['-', [!Ref 'AWS::StackName', 'instance', !Sub "${EnvironmentName}"]]
+
+
+
+Outputs:
+    HostSecurityGroup:
+        Description: A reference to the security group for hosts
+        Value: !Ref InstanceHostSecurityGroup
+        Export:
+              Name: !Join ['-', [!Sub "${AWS::StackName}", 'sec', 'instance', !Sub "${EnvironmentName}"]]
+

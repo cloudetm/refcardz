@@ -1,5 +1,15 @@
 = *Docker Commands*
 
+Remove all images
+```
+ docker rm $(docker ps -a -q)
+```
+
+Remove all untagged images
+```
+ docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
+```
+
 *docker logs tracking-app --follow*
 
 docker tag   (Helpful if you need to add a tag)

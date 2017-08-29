@@ -8,3 +8,6 @@ chmod – the command to modify permissions
 -R – this modifies the permission of the parent folder and the child objects within
 
 ugo+rw – this gives User, Group, and Other read and write access.
+
+To change the ownership back to you, you could
+sudo chown -R $(id -u):$(id -g) $HOME

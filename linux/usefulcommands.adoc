@@ -53,10 +53,12 @@ Get ip addresses
 ```
 /sbin/ifconfig
 ```
+
 Shows current mounted points and etc.
 ```
 df -h
 ```
+
 Constantly watches docker ps
 ```
 watch -n <interval> docker ps
@@ -76,6 +78,7 @@ free -m >> monitor memory usage.
 top > used to monitor ram usage
 htop > grafical interface.
 ```
+
 Make 4g swap file
 ```
 dd if=/dev/zero of=/tmp/.swapfile bs=10240 count=400000;

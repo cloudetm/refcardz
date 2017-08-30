@@ -26,21 +26,24 @@ Selectively monitor the file
 ```
 tail -f <file> | grep <what looking>
 ```
-Work with files
-*Move from directory to parent directory*
+
+===Work with files
+Move from directory to parent directory
 ```
-*.* ..
+mv . ..
+```
 
 *Untar*
 ```
 tar -zxvf <file>.tgz -C <folder>
 ```
-=== *Profile updates*
+=== Profile updates
 
-Without breaking current session, upgrade profile*
+Without breaking current session, upgrade profile
 ```
 source ~/.profile
 ```
+
 Clean rubbish bin
 ```
 rm -rf ~/.local/share/Trash/*

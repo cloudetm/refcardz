@@ -32,9 +32,44 @@ tar -zxvf <file>.tgz -C <folder>
 
 === *Profile updates*
 
-*Without breaking current session, upgrade profile*
-
+Without breaking current session, upgrade profile*
+```
 source ~/.profile
-
-clean rubbish bin
+```
+Clean rubbish bin
+```
 rm -rf ~/.local/share/Trash/*
+```
+
+Get ip addresses
+```
+/sbin/ifconfig
+```
+Shows current mounted points and etc.
+```
+df -h
+```
+Constantly watches docker ps
+```
+watch -n <interval> docker ps
+````
+Swap files
+```
+cat /proc/meminfo to see total swap, and free swap (all linux)
+cat /proc/swaps to see which swap devices are being used (all linux)
+swapon -s to see swap devices and sizes (where swapon is installed)
+
+System monitors
+```
+vmstat [-s] for current virtual memory statistics
+free -m >> monitor memory usage.
+top > used to monitor ram usage
+htop > grafical interface.
+```
+Make 4g swap file
+```
+dd if=/dev/zero of=/tmp/.swapfile bs=10240 count=400000;
+chmod 600 /tmp/.swapfile;
+mkswap /tmp/.swapfile;
+swapon /tmp/.swapfile;
+```

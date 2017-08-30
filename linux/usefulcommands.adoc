@@ -8,28 +8,33 @@
 
 *ls -alh*
 
-=== *Command allows file to be copied to, from, or between different hosts*
-*scp <file> <ssh user and server>:<location where to>*
+Command allows file to be copied to, from, or between different host
+```
+scp <file> <ssh user and server>:<location where to>
+```
+Copy file from server
+```
+scp <ssh user and server>:<location where to> <location on local machine>
+```
 
-==== *Copy file from server*
-*scp <ssh user and server>:<location where to> <location on local machine>*
+Output appended data from the file as the file grows
+```
+tail -f <file>
+```
 
-=== *Output appended data from the file as the file grows *
-*tail -f <file>*
-
-=== *Selectively monitor the file*
-*tail -f <file> | grep <what looking>*
-
-
-=== *Work with files*
+Selectively monitor the file
+```
+tail -f <file> | grep <what looking>
+```
+Work with files
 *Move from directory to parent directory*
-
-mv *.* ..
+```
+*.* ..
 
 *Untar*
-
+```
 tar -zxvf <file>.tgz -C <folder>
-
+```
 === *Profile updates*
 
 Without breaking current session, upgrade profile*

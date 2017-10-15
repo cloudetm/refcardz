@@ -1,5 +1,10 @@
 = *Useful Commands*
 
+Retrieve System Info
+```bash
+inxi -Fxz
+```
+
 === *Displays files*
 
 *  -a Displays hidden files or direcotry

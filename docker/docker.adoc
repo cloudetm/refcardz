@@ -2,6 +2,8 @@
 
 Remove all images
 ```
+docker container prune 
+docker images prune
  docker rm $(docker ps -a -q)
 ```
 

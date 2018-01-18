@@ -9,8 +9,8 @@ docker rm $(docker ps -a -q)
 
 Remove all untagged images
 ```
- docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
- docker image prune --force --filter "repository=none"
+docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
+docker image prune --force --filter "repository=none"
 ```
 
 *docker logs tracking-app --follow*

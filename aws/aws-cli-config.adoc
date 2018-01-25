@@ -3,6 +3,12 @@ Author is Ivan Katliarchuk
 GUIDE
 http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 
+Setup CLI
+```
+export AWS_DEFAULT_REGION=eu-west-1
+export AWS_PROFILE=api
+```
+
 cd latestEnv
 
 <may need to install pip and virtual env> source latestEnv/bin/activate

@@ -45,9 +45,10 @@ Set AWS configuration On HOST and on JUMP BOX
 Pick The Reqion
 http://docs.aws.amazon.com/general/latest/gr/rande.html
 
+```
 AWS Access Key ID [None]: *CloudFormation LoAdmin Outputs*
-
 AWS Secret Access Key [None]:
+```
 
 Default region name [None]: eu-west-2
 

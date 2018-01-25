@@ -13,7 +13,12 @@ cd latestEnv
 
 <may need to install pip and virtual env> source latestEnv/bin/activate
 
-Command: 'sudo apt install awscli'
+Command:
+
+```bash
+sudo apt install awscli
+```
+
 Python libraries needed
 
 AWS CLI tool support

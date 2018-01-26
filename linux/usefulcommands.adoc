@@ -27,66 +27,66 @@ Command allows file to be copied to, from, or between different host
 scp <file> <ssh user and server>:<location where to>
 ```
 Copy file from server
-```
+```bash
 scp <ssh user and server>:<location where to> <location on local machine>
 ```
 
 Output appended data from the file as the file grows
-```
+```bash
 tail -f <file>
 ```
 
 Selectively monitor the file
-```
+```bash
 tail -f <file> | grep <what looking>
 ```
 
 ===Work with files
 Move from directory to parent directory
-```
+```bash
 mv . ..
 ```
 
 *Untar*
-```
+```bash
 tar -zxvf <file>.tgz -C <folder>
 ```
 === Profile updates
 
 Without breaking current session, upgrade profile
-```
+```bash
 source ~/.profile
 ```
 
 Clean rubbish bin
-```
+```bash
 rm -rf ~/.local/share/Trash/*
 ```
 
 Get ip addresses
-```
+```bash
 /sbin/ifconfig
 ```
 
 Shows current mounted points and etc.
-```
+```bash
 df -h
 ```
 
 Constantly watches docker ps
-```
+```bash
 watch -n <interval> docker ps
 ```
 
 Swap files
-```
+```bash
 cat /proc/meminfo to see total swap, and free swap (all linux)
 cat /proc/swaps to see which swap devices are being used (all linux)
 swapon -s to see swap devices and sizes (where swapon is installed)
 ```
 
 System monitors
-```
+```bash
 vmstat [-s] for current virtual memory statistics
 free -m >> monitor memory usage.
 top > used to monitor ram usage
@@ -94,7 +94,7 @@ htop > grafical interface.
 ```
 
 Make 4g swap file
-```
+```bash
 dd if=/dev/zero of=/tmp/.swapfile bs=10240 count=400000;
 chmod 600 /tmp/.swapfile;
 mkswap /tmp/.swapfile;

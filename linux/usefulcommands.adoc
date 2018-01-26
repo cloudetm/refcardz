@@ -1,5 +1,14 @@
 = *Useful Commands*
 
+Clear
+```bash
+sudo apt-get autoclean && sudo apt-get autoremove -y && sudo apt-get clean
+```
+Clear cernet 
+```bash
+sudo apt-get purge $(dpkg -l linux-{image,headers}-"[0-9]*" | awk '/ii/{print $2}' | grep -ve "$(uname -r | sed -r 's/-[a-z]+//')")
+```
+
 Retrieve System Info
 ```bash
 inxi -Fxz

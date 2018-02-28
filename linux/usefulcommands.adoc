@@ -114,3 +114,8 @@ Downgrade Version
 ```
 sudo apt install --reinstall package=version
 ```
+
+Mate Specific
+```
+mate-control-center
+```

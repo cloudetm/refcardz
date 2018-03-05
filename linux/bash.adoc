@@ -1,0 +1,4 @@
+Exit traps
+```
+http://redsymbol.net/articles/bash-exit-traps/
+```

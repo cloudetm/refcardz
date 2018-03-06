@@ -5,3 +5,6 @@
 [10 мини-лайфхаков в Bash](https://habrahabr.ru/post/327194/)
 
 [Exit traps](http://redsymbol.net/articles/bash-exit-traps/)
+
+[Manage Processes from Linux Terminal](https://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/)
+

@@ -17,6 +17,7 @@ sudo apt-get purge $(dpkg -l linux-{image,headers}-"[0-9]*" | awk '/ii/{print $2
 Retrieve System Info
 ```bash
 inxi -Fxz
+lsb_release -a
 ```
 
 === *Displays files*

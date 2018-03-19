@@ -18,6 +18,7 @@ docker image prune --force --filter "repository=none"
 Cannot connect to the Docker deamon>
 ```bash
 sudo usermod -aG docker $USER
+sudo usermod -a -G docker ec2-user
 ```
 
 *docker logs tracking-app --follow*

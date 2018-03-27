@@ -3,7 +3,7 @@
 	email = <email>
 	initals = <initials>
 [core]
-	symlinks = false
+	symlinks = true
 	repositoryformatversion = 0
 	filemode = false
 	logallrefupdates = true

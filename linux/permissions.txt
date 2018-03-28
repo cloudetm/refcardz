@@ -11,3 +11,9 @@ ugo+rw – this gives User, Group, and Other read and write access.
 
 To change the ownership back to you, you could
 sudo chown -R $(id -u):$(id -g) $HOME
+
+File permission check
+
+```bash
+stat -c "%a %n" {filename}
+```

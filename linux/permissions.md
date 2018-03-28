@@ -1,4 +1,7 @@
+```bash
 sudo chmod -R ugo+rw <folder>
+```
+
 The breakdown of the above command looks like:
 
 sudo – this is used to gain admin rights for the command on any system that makes use of sudo (otherwise you'd have to 'su' to root and run the above command without 'sudo')

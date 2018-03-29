@@ -19,6 +19,10 @@ Retrieve System Info
 inxi -Fxz
 lsb_release -a
 ```
+Fine files that matching names
+```bash
+find {directory} -name "{name|regex}"
+```
 
 === *Displays files*
 

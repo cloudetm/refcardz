@@ -1,3 +1,12 @@
 ```
  sudo apt-get upgrade linux-generic linux-headers-generic linux-image-generic
  ```
+
+
+Grub
+
+
+```
+sudo nano /etc/default/grub
+sudo update-grub
+```

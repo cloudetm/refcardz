@@ -18,6 +18,7 @@ Retrieve System Info
 ```bash
 inxi -Fxz
 lsb_release -a
+sudo dmidecode | grep -A 9 "System Information"
 ```
 Fine files that matching names
 ```bash

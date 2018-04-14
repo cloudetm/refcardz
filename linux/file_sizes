@@ -7,4 +7,5 @@ In a normal representation
 In human readable format
 ```bash
 du -sh * | sort -h
+du -ksh * | sort -h -r
 ```

@@ -1,0 +1,6 @@
+
+ Command re-computes the internal hash table of the contents of directories listed in the path environmental variable to account for new commands added.
+ 
+```bash
+ rehash
+```

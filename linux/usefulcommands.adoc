@@ -3,6 +3,7 @@
 Full update
 ```bash
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
+sudo apt-get upgrade linux-generic linux-headers-generic linux-image-generic
 ```
 
 Clear

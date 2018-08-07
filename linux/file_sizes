@@ -8,4 +8,5 @@ In human readable format
 ```bash
 du -sh * | sort -h
 du -ksh * | sort -h -r
+du -cksh * | sort -hr | head -n 15
 ```

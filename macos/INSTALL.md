@@ -11,6 +11,7 @@ AWS
 `brew install brew install zsh`
 
 `brew install iamy`
+- [IAMY](https://github.com/99designs/iamy)
 
 `brew cask install aws-vault`
 

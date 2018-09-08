@@ -8,11 +8,16 @@ brew install gnupg2 pinentry-mac coreutils
 
 AWS
 
-```
 brew install iamy
+
 brew cask install aws-vault
+
 brew install awscli
-```
+
+`brew install direnv`
+- echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
+- https://direnv.net/
+
 
 Yubikey
 ```

@@ -23,3 +23,8 @@ Yubikey
 ```
 brew install pam_yubico
 ```
+
+CLI
+
+`z`
+- [Jump Around](https://github.com/rupa/z)

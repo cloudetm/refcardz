@@ -8,6 +8,8 @@ brew install gnupg2 pinentry-mac coreutils
 
 AWS
 
+`brew install brew install zsh`
+
 `brew install iamy`
 
 `brew cask install aws-vault`

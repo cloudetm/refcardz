@@ -4,6 +4,12 @@ brew install openssl
 brew install curl --with-openssl
 brew install wget
 brew install gnupg2 pinentry-mac coreutils
+brew install jq
+```
+
+Mac OS Work Simplification
+```
+brew install spectacle
 ```
 
 AWS

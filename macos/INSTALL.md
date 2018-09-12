@@ -8,6 +8,12 @@ brew install jq
 brew install wget
 ```
 
+Programming Languages
+```
+brew cask install dotnet-sdk
+brew insatll golang
+```
+
 Mac OS Work Simplification
 ```
 brew install spectacle

@@ -5,6 +5,7 @@ brew install curl --with-openssl
 brew install wget
 brew install gnupg2 pinentry-mac coreutils
 brew install jq
+brew install wget
 ```
 
 Mac OS Work Simplification
@@ -31,6 +32,11 @@ AWS
 Yubikey
 ```
 brew install pam_yubico
+```
+
+GPG Suite
+```
+https://gpgtools.org/
 ```
 
 CLI

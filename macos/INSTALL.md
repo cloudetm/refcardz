@@ -14,6 +14,11 @@ brew cask install dotnet-sdk
 brew insatll golang
 ```
 
+Database Conection Tools
+```
+brew install flyway
+```
+
 Mac OS Work Simplification
 ```
 brew install spectacle

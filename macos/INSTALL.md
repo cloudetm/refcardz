@@ -54,3 +54,8 @@ CLI
 
 `z`
 - [Jump Around](https://github.com/rupa/z)
+
+[Midnight Commander](http://www.trembath.co.za/mctutorial.html)
+```
+brew install mc
+```

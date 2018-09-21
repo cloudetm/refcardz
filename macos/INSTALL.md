@@ -8,6 +8,12 @@ brew install jq
 brew install wget
 ```
 
+Kubernetes
+```
+brew install kubernetes-cli
+brew install kubernetes-helm
+```
+
 Programming Languages
 ```
 brew cask install dotnet-sdk

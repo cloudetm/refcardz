@@ -24,6 +24,7 @@ brew insatll golang
 Database Conection Tools
 ```
 brew install flyway
+brew cask install azure-data-studio
 ```
 
 Mac OS Work Simplification

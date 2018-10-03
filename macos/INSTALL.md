@@ -8,6 +8,7 @@ brew install jq
 brew install wget
 brew install telnet
 brew cask install keepassxc
+brew cask install virtualbox
 ```
 
 Kubernetes

@@ -7,6 +7,7 @@ brew install gnupg2 pinentry-mac coreutils
 brew install jq
 brew install wget
 brew install telnet
+brew cask install keepassxc
 ```
 
 Kubernetes

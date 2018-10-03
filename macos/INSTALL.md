@@ -33,6 +33,12 @@ Mac OS Work Simplification
 brew install spectacle
 ```
 
+Docker
+```
+brew cask install minikube
+
+```
+
 AWS
 
 `brew install brew install zsh`

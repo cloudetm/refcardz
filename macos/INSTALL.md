@@ -15,6 +15,8 @@ Kubernetes
 ```
 brew install kubernetes-cli
 brew install kubernetes-helm
+brew install kubectx
+brew install kube-ps1
 ```
 
 Programming Languages

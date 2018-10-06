@@ -9,6 +9,7 @@ brew install wget
 brew install telnet
 brew cask install keepassxc
 brew cask install virtualbox
+brew cask install iterm2
 ```
 
 Kubernetes
@@ -23,6 +24,11 @@ Programming Languages
 ```
 brew cask install dotnet-sdk
 brew insatll golang
+```
+
+Network Troubleshooting
+```bash
+brew cask install wireshark
 ```
 
 Development

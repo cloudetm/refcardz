@@ -88,3 +88,9 @@ CLI
 ```
 brew install mc
 ```
+
+Work with Brew
+```bash
+brew update
+brew cleanup
+```

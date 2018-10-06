@@ -64,6 +64,11 @@ AWS
 
 `brew install awscli`
 
+YAML
+```
+https://github.com/geofffranks/spruce
+```
+
 `brew install direnv`
 - echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
 - https://direnv.net/

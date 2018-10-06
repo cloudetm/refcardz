@@ -25,6 +25,11 @@ brew cask install dotnet-sdk
 brew insatll golang
 ```
 
+Development
+```bash
+brew cask install postman
+```
+
 Database Conection Tools
 ```
 brew install flyway

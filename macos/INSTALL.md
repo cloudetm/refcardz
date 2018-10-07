@@ -77,6 +77,7 @@ https://github.com/geofffranks/spruce
 Yubikey
 ```
 brew install pam_yubico
+brew cask install yubikey-personalization-gui
 ```
 
 GPG Suite

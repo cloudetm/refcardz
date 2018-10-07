@@ -40,6 +40,7 @@ Database Conection Tools
 ```
 brew install flyway
 brew cask install azure-data-studio
+brew cask install jetbrains-toolbox
 ```
 
 Mac OS Work Simplification

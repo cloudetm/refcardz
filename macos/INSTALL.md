@@ -28,6 +28,8 @@ brew insatll golang
 
 Network Troubleshooting
 ```bash
+brew install telnet
+brew install nmap
 brew cask install wireshark
 ```
 

@@ -33,6 +33,11 @@ brew install nmap
 brew cask install wireshark
 ```
 
+Devops
+```bash
+ brew install cloudfoundry/tap/bosh-cli
+```
+
 Development
 ```bash
 brew cask install postman

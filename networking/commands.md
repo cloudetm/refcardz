@@ -21,3 +21,8 @@ Debug packets how to travel
 ```bash
 traceroute
 ```
+
+Query internet domain servers
+```bash
+nslookup s3-external-1.amazonaws.com
+```

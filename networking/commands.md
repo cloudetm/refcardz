@@ -16,3 +16,8 @@ For a quick interactive check (with a 5 seconds timeout):
 ```bash
 nc -z -v -w5 <host> <port>
 ```
+
+Debug packets how to travel
+```bash
+traceroute
+```

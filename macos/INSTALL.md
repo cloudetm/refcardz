@@ -17,6 +17,7 @@ brew install telnet
 brew cask install keepassxc
 brew cask install virtualbox
 brew cask install iterm2
+brew install git-secrets
 ```
 
 Kubernetes

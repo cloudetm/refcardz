@@ -32,6 +32,7 @@ Programming Languages
 ```
 brew cask install dotnet-sdk
 brew insatll golang
+brew cask install java
 ```
 
 Network Troubleshooting

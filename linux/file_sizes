@@ -6,6 +6,7 @@ In a normal representation
 
 In human readable format
 ```bash
+du -sh ./*
 du -sh * | sort -h
 du -ksh * | sort -h -r
 du -cksh * | sort -hr | head -n 15

@@ -15,3 +15,7 @@ And then your work specific config ~/work/.gitconfig would look like this:
     email = pavan.kataria@company.tld
 Thank you @alexg for informing me of this in the comments.
 ```
+
+## Commands
+
+git ls-remote

@@ -8,6 +8,9 @@ docker images prune
 docker system prune -a
 docker rm $(docker ps -a -q)
 docker system prune --volumes --force
+docker stop $(docker ps -q) || true
+docker system prune -a -f
+docker volume rm $(docker volume ls -q) || true
 ```
 
 Remove all untagged images

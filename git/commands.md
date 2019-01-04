@@ -12,4 +12,5 @@ git tag -a "v0.0.2" -m "Second release of app"
 Setup
 ```bash
 git config --global branch.autosetuprebase always
+git config --global pager.log false
 ```

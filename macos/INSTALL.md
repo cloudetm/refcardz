@@ -59,6 +59,13 @@ brew cask install azure-data-studio
 brew cask install jetbrains-toolbox
 ```
 
+OpenVPN
+```
+brew install openvpn
+sudo mkdir -p /usr/local/sbin
+sudo chown -R $(whoami) /usr/local/sbin
+```
+
 Mac OS Work Simplification
 ```
 brew install spectacle
@@ -67,7 +74,6 @@ brew install spectacle
 Docker
 ```
 brew cask install minikube
-
 ```
 
 AWS

@@ -21,9 +21,10 @@ inxi -Fxz
 lsb_release -a
 sudo dmidecode | grep -A 9 "System Information"
 ```
-Fine files that matching names
+Find files that matching names
 ```bash
 find {directory} -name "{name|regex}"
+sudo find / -type f -name "openvpn"
 ```
 
 === *Displays files*

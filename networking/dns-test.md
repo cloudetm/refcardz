@@ -52,3 +52,78 @@ www.amazon.com.    1800   IN    NS   ns-1178.awsdns-19.org.
 ;; Received 186 bytes from 205.251.195.251#53(205.251.195.251) in 7 ms
 ```
 
+You can also perform a query that returns only the name servers:
+
+```bash
+$ dig -t NS www.amazon.com
+; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.37.rc1.49.amzn1 <<>> -t NS www.amazon.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48631
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 0
+;; QUESTION SECTION:
+;www.amazon.com.        IN    NS
+;; ANSWER SECTION:
+www.amazon.com.        490    IN    NS    ns-1019.awsdns-63.net.
+www.amazon.com.        490    IN    NS    ns-1178.awsdns-19.org.
+www.amazon.com.        490    IN    NS    ns-1568.awsdns-04.co.uk.
+www.amazon.com.        490    IN    NS    ns-277.awsdns-34.com.
+;; Query time: 0 msec
+;; SERVER: 10.108.0.2#53(10.108.0.2)
+;; WHEN: Fri Oct 21 21:48:20 2016
+;; MSG SIZE rcvd: 170
+```
+
+The following is the output for a query to www.amazon.com to one of its authoritative name servers (ns-1019.awsdns-63.net); it responds telling us that www.amazon.com is available on 54.239.25.192:
+```bash
+$ dig www.amazon.com @ns-1019.awsdns-63.net.
+; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.37.rc1.49.amzn1 <<>> www.amazon.com @ns-1019.awsdns-63.net.
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31712
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 4, ADDITIONAL: 0
+;; WARNING: recursion requested but not available
+;; QUESTION SECTION:
+;www.amazon.com.    IN    A
+;; ANSWER SECTION:
+www.amazon.com.        60    IN    A    54.239.25.192
+;; AUTHORITY SECTION:
+www.amazon.com.        1800    IN    NS    ns-1019.awsdns-63.net.
+www.amazon.com.        1800    IN    NS    ns-1178.awsdns-19.org.
+www.amazon.com.        1800    IN    NS    ns-1568.awsdns-04.co.uk.
+…
+;; Query time: 7 msec
+;; SERVER: 205.251.195.251#53(205.251.195.251)
+;; WHEN: Fri Oct 21 21:50:00 2016
+;; MSG SIZE rcvd: 186
+```
+
+On Windows-based operating systems, use the nslookup utility. nslookup returns the IP address associated with a host name, as in the following example:
+```ps
+C:\>nslookup www.amazon.com
+Server:     ip-10-20-0-2.ec2.internal
+Address:    10.20.0.2
+Non-authoritative answer:
+Name:       www.amazon.com
+Address:    54.239.25.192
+```
+
+To determine the authoritative name servers for a host name using the nslookup utility, use the -type=NS flag:
+```ps
+C:\>nslookup -type=NS www.amazon.com
+Server:     ip-10-20-0-2.ec2.internal
+Address:    10.20.0.2
+Non-authoritative answer:
+www.amazon.com    nameserver = ns-277.awsdns-34.com
+www.amazon.com    nameserver = ns-1019.awsdns-63.net
+www.amazon.com    nameserver = ns-1178.awsdns-19.org
+```
+
+To see if ns-277.awsdns-34.com for www.amazon.com responds correctly to a request for www.amazon.com, use the following syntax
+```ps
+:\>nslookup www.amazon.com ns-277.awsdns-34.com
+Server:     UnKnown
+Address:    205.251.193.21
+Name:       www.amazon.com
+Address:    54.239.25.200
+```

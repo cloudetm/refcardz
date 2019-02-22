@@ -18,6 +18,8 @@ brew cask install keepassxc
 brew cask install virtualbox
 brew cask install iterm2
 brew install git-secrets
+brew tap starkandwayne/cf
+brew cask install vmware-fusion
 ```
 
 Kubernetes

@@ -1,5 +1,7 @@
 # Links to resources
 
+## K8S resource limits
+[Resource limits](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-resource-requests-and-limits)
 
 ## Prometheus
 

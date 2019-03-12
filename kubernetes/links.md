@@ -11,3 +11,11 @@
 ## Prometheus
 
 [How To setup](https://linuxacademy.com/blog/kubernetes/running-prometheus-on-kubernetes/?utm_source=intercom&utm_medium=onboarding&utm_campaign=CommunityRotationReleases)
+
+## Terraform Setup
+
+https://github.com/1ambda/terraform-all-in-one/tree/master
+https://github.com/oracle/terraform-kubernetes-installer
+
+## K8s Helm Terraform
+https://github.com/GoogleCloudPlatform/terraform-google-examples

@@ -19,3 +19,8 @@ https://github.com/oracle/terraform-kubernetes-installer
 
 ## K8s Helm Terraform
 https://github.com/GoogleCloudPlatform/terraform-google-examples
+
+## Security
+
+https://github.com/aquasecurity/kube-hunter
+https://github.com/aquasecurity/kube-bench

@@ -24,3 +24,5 @@ https://github.com/GoogleCloudPlatform/terraform-google-examples
 
 https://github.com/aquasecurity/kube-hunter
 https://github.com/aquasecurity/kube-bench
+
+https://www.twistlock.com/2018/06/21/securing-istio-twistlock/

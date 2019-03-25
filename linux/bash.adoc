@@ -2,3 +2,9 @@ Exit traps
 ```
 http://redsymbol.net/articles/bash-exit-traps/
 ```
+
+Good resoruce
+
+```
+https://www.shellscript.sh/test.html
+```

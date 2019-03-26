@@ -27,3 +27,7 @@ https://github.com/aquasecurity/kube-hunter
 https://github.com/aquasecurity/kube-bench
 
 https://www.twistlock.com/2018/06/21/securing-istio-twistlock/
+
+## Workshop
+
+https://github.com/aws-samples/aws-workshop-for-kubernetes

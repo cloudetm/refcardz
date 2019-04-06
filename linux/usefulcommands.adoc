@@ -27,6 +27,12 @@ find {directory} -name "{name|regex}"
 sudo find / -type f -name "openvpn"
 ```
 
+=== *Capabilties of the kernel*
+
+```
+grep Cap /proc/1/status
+```
+
 === *Displays files*
 
 *  -a Displays hidden files or direcotry

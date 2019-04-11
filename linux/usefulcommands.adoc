@@ -6,6 +6,11 @@ sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
 sudo apt-get upgrade linux-generic linux-headers-generic linux-image-generic
 ```
 
+```
+mount | grep foo # confirm the mounting
+cat /etc/passwd | cut -f 1 -d ':' > /etc/foo/passwd # read first column
+```
+
 Clear
 ```bash
 sudo apt-get autoclean && sudo apt-get autoremove -y && sudo apt-get clean

@@ -5,4 +5,4 @@
 ```
 
 `Write with sudo`
-`:w !sudo tee %`
+```:w !sudo tee %```

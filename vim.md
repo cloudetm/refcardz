@@ -5,4 +5,6 @@
 ```
 
 `Write with sudo`
-```:w !sudo tee %```
+```vim
+:w !sudo tee %
+```

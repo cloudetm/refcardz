@@ -1,6 +1,6 @@
 
 `Show line numbers`
-```
+```vim
 :set number
 ```
 

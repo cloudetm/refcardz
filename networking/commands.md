@@ -6,7 +6,8 @@ tcpdump
 
 Check if port is listening
 ```
-netstat -ant | grep:80
+netstat -ant | grep :80
+netstat -ntpl| grep -i 9418
 ```
 Ping port
 ```

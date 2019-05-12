@@ -15,7 +15,7 @@ docker volume rm $(docker volume ls -q) || true
 
 Remove all untagged images
 ```
-docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
+docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') -f
 docker image prune --force --filter "repository=none"
 ```
 

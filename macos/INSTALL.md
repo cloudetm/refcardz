@@ -2,6 +2,7 @@ Auto Update all the casks
 ```
 brew tap buo/cask-upgrade
 brew update
+brew upgrade
 brew cu
 brew cleanup
 ```

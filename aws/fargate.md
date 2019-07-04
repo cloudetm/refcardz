@@ -13,7 +13,9 @@
 
 [With Scaling](https://github.com/turnerlabs/terraform-ecs-fargate)
 
-[NLB](https://github.com/turnerlabs/terraform-ecs-fargate-nlb)
+[NLB](https://github.com/turnerlabs/terraform-ecs-fargate-nlb) 
+
+[Simple](https://github.com/arminc/terraform-ecs)
 
 ## Dashboards
 

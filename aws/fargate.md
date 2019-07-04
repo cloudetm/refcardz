@@ -22,6 +22,10 @@
 
 [ECS](https://ecsworkshop.com/)
 
+## Metrics
+
+https://medium.com/247sports-engineering/highly-available-grafana-running-on-aws-fargate-and-rds-aurora-2bbea9d41b50
+
 ## Awesomnes
 
 https://github.com/nathanpeck/awesome-ecs

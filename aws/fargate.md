@@ -25,6 +25,8 @@
 
 [ECS](https://ecsworkshop.com/)
 
+[Data Analytics](https://github.com/ik-workshop/amazon-ecs-catsndogs-workshop)
+
 ## Metrics
 
 https://medium.com/247sports-engineering/highly-available-grafana-running-on-aws-fargate-and-rds-aurora-2bbea9d41b50

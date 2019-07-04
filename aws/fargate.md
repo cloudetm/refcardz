@@ -7,6 +7,8 @@
 
 [Scaffold New](https://github.com/turnerlabs/fargate-create)
 
+[Docs](https://somanymachines.com/fargate/)
+
 ## Terraform
 
 [With Scaling](https://github.com/turnerlabs/terraform-ecs-fargate)

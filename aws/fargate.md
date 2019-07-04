@@ -34,3 +34,7 @@ https://medium.com/247sports-engineering/highly-available-grafana-running-on-aws
 ## Awesomnes
 
 https://github.com/nathanpeck/awesome-ecs
+
+## CI/CD
+
+https://github.com/awslabs/ecs-refarch-continuous-deployment

@@ -10,6 +10,7 @@
 ## Terraform
 
 [With Scaling](https://github.com/turnerlabs/terraform-ecs-fargate)
+[NLB](https://github.com/turnerlabs/terraform-ecs-fargate-nlb)
 
 ## Dashboards
 
@@ -17,3 +18,4 @@
 
 [AWS](https://eksworkshop.com/more_resources/)
 
+[ECS](https://ecsworkshop.com/)

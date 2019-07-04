@@ -21,3 +21,7 @@
 [AWS](https://eksworkshop.com/more_resources/)
 
 [ECS](https://ecsworkshop.com/)
+
+## Awesomnes
+
+https://github.com/nathanpeck/awesome-ecs

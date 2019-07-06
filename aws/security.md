@@ -34,3 +34,5 @@ https://github.com/ik-terraform/terraform-waf-owasp
 https://github.com/ik-terraform/terraform-aws-secure-baseline
 
 https://github.com/ik-terraform/aws-waf-security-automation
+
+https://github.com/traveloka/terraform-aws-waf-owasp-top-10-rules

@@ -10,6 +10,10 @@ https://monzo.com/blog/2019/01/15/crowdfunding-technology-testing
 * [Artillery](https://artillery.io/)
 * [Gatling](https://gatling.io/)
 
+## Plygins
+
+[Maven Plugins](https://github.com/electronicarts/gatling-aws-maven-plugin)
+
 ## Percentiles
 
 https://www.dynatrace.com/news/blog/why-averages-suck-and-percentiles-are-great/

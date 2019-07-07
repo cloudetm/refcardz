@@ -13,3 +13,7 @@ https://monzo.com/blog/2019/01/15/crowdfunding-technology-testing
 ## Percentiles
 
 https://www.dynatrace.com/news/blog/why-averages-suck-and-percentiles-are-great/
+
+## Performance Run Tutorial
+
+https://bhuwanupadhyay.github.io/serverless/load-testing/gatling/2018/09/12/aws-lambda-load-testing-with-large-scale-data-using-gatling.html

@@ -29,3 +29,7 @@ https://github.com/Nordstrom/serverless-artillery
 https://github.com/richardhendricksen/gatling-docker-on-aws
 
 [Blueprint](https://github.com/ik-performance/gatling-blueprint-project)
+
+## Gatling Tutorial
+
+https://automationrhapsody.com/performance-testing-with-gatling/

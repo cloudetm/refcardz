@@ -1,5 +1,9 @@
 # Links to resources
 
+## Awesome
+
+https://ramitsurana.github.io/awesome-kubernetes/
+
 ## K8S Docs
 
 [Openshif](https://docs.okd.io/latest/minishift/command-ref/minishift.html)
@@ -36,4 +40,9 @@ https://www.twistlock.com/2018/06/21/securing-istio-twistlock/
 ## Workshop
 
 https://github.com/aws-samples/aws-workshop-for-kubernetes
+
+[Istio](https://github.com/ik-kubernetes/istio-workshop)
+
+[Craft](https://github.com/kelseyhightower/craft-kubernetes-workshop)
+
 

@@ -24,9 +24,13 @@ https://github.com/GoogleCloudPlatform/terraform-google-examples
 ## Security
 
 https://github.com/aquasecurity/kube-hunter
+
 https://github.com/aquasecurity/kube-bench
+
 https://kubernetes-security.info/
+
 https://kubernetes.io/blog/2018/07/18/11-ways-not-to-get-hacked/
+
 https://www.twistlock.com/2018/06/21/securing-istio-twistlock/
 
 ## Workshop

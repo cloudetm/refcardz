@@ -52,4 +52,8 @@ https://github.com/aws-samples/aws-workshop-for-kubernetes
 
 [GCP Workshop](https://github.com/GoogleCloudPlatform/kubernetes-workshops)
 
+## CI/CD
+
+https://github.com/GoogleCloudPlatform/gke-gitops-tutorial-cloudbuild
+
 

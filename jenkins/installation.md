@@ -12,5 +12,4 @@ https://aws.amazon.com/blogs/devops/setting-up-the-jenkins-plugin-for-aws-codede
 
 [Distribute From Makertplace](https://cloud.google.com/solutions/using-jenkins-for-distributed-builds-on-compute-engine)
 
-
-
+[Integrations](https://github.com/GoogleCloudPlatform/jenkins-integration-samples)

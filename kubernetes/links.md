@@ -23,7 +23,10 @@ https://github.com/1ambda/terraform-all-in-one/tree/master
 https://github.com/oracle/terraform-kubernetes-installer
 
 ## K8s Helm Terraform
-https://github.com/GoogleCloudPlatform/terraform-google-examples
+
+GCP : https://github.com/GoogleCloudPlatform/terraform-google-examples
+
+GCP: https://cloud.google.com/blog/products/devops-sre/deploying-a-production-grade-helm-release-on-gke-with-terraform
 
 ## Security
 

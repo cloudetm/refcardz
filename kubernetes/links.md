@@ -50,4 +50,6 @@ https://github.com/aws-samples/aws-workshop-for-kubernetes
 
 [GCP K8s Craft](https://github.com/kelseyhightower/intro-to-kubernetes-workshop)
 
+[GCP Workshop](https://github.com/GoogleCloudPlatform/kubernetes-workshops)
+
 

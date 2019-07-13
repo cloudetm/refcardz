@@ -45,4 +45,6 @@ https://github.com/aws-samples/aws-workshop-for-kubernetes
 
 [Craft](https://github.com/kelseyhightower/craft-kubernetes-workshop)
 
+[GCP K8s Craft](https://github.com/kelseyhightower/intro-to-kubernetes-workshop)
+
 
